@@ -1,0 +1,15 @@
+---
+applications:
+- name: bookmark-service
+  memory: 512M
+  instances: 2
+  host: bookmark-service-msa
+  domain: cfapps.io
+  path: target/bookmark-service.jar
+  services:
+      - eureka-service
+      - bookmark-service-elephantsql
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"
